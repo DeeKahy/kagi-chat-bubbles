@@ -1,0 +1,93 @@
+/* Kagi Assistant - Dark Mode Chat Bubbles (Full Width + Button Fix) */
+/* Kagi gold + Apple dark mode inspired */
+
+/* Container setup */
+#chat_box {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px 40px; /* Side padding for breathing room */
+}
+
+/* Base bubble styling */
+.chat_bubble {
+    max-width: 85%; /* Increased from 75% */
+    padding: 14px 18px;
+    border-radius: 18px;
+    line-height: 1.6;
+}
+
+/* AI messages - left side */
+/* Elevated surface gray (Apple dark mode style) */
+.chat_bubble[data-author="assistant"] {
+    align-self: flex-start;
+    background-color: #2c2c2e; /* Apple systemGray6 dark */
+    color: #e5e5e7;
+    border-bottom-left-radius: 4px;
+    margin-right: 0; /* Remove auto margin */
+}
+
+/* User messages - right side */
+/* Warm Kagi amber-tinted dark */
+.chat_bubble[data-author="user"] {
+    align-self: flex-end;
+    background-color: #483c28; /* Kagi gold undertone */
+    color: #f5f5f7;
+    border-bottom-right-radius: 4px;
+    margin-left: 0; /* Remove auto margin */
+    margin-right: 50px; /* Space for edit button */
+}
+
+/* Code blocks inside bubbles */
+.chat_bubble pre {
+    background-color: #1c1c1e !important; /* Deeper for contrast */
+    border-radius: 10px;
+    margin: 10px 0;
+    overflow-x: auto;
+}
+
+.chat_bubble code {
+    font-size: 0.9em;
+}
+
+/* Links */
+.chat_bubble[data-author="assistant"] a {
+    color: #ffd60a; /* Kagi gold accent */
+}
+
+.chat_bubble[data-author="user"] a {
+    color: #ffeaa7;
+    text-decoration: underline;
+}
+
+/* Light mode fallback (if needed) */
+.k_ui_theme_light .chat_bubble[data-author="assistant"] {
+    background-color: #f2f2f7;
+    color: #1c1c1e;
+}
+
+.k_ui_theme_light .chat_bubble[data-author="user"] {
+    background-color: #e8dcc8; /* Warm sand/cream */
+    color: #1c1c1e;
+}
+
+.k_ui_theme_light .chat_bubble[data-author="assistant"] a {
+    color: #d4a000;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    #chat_box {
+        padding: 20px 16px;
+    }
+
+    .chat_bubble {
+        max-width: 90%;
+    }
+
+    .chat_bubble[data-author="user"] {
+        margin-right: 40px; /* Less space on mobile */
+    }
+}
